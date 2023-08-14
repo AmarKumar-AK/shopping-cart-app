@@ -1,11 +1,11 @@
 import React from 'react'
-import "../../../css/Navbar.css"
 import NavbarAuth from './NavbarAuth';
 import NavbarCart from './NavbarCart';
+import "../../../css/navbar/NavbarAuthAndCart.css"
 
 const NavbarAuthAndCart = () => {
   return (
-    <div className='auth-cart'>
+    <div className='NavbarAuthAndCart-container'>
         <NavbarAuth />
         <NavbarCart />
     </div>

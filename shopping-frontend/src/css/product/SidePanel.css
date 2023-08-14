@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+.SidePanel-container {
+    /* display: flex;
+    flex-direction: column; */
+    width: 20%;
+    background-color: #eaeaea;
+}
+
+.SidePanel-category-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: small;
+    color: #949494;
+    padding: 0.5rem 2rem;
+    border-bottom: 1.5px solid #dcdcdc;
+}

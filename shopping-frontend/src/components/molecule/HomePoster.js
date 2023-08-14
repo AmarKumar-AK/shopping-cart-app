@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../css/HomePoster.css"
+// import "../../css/HomePoster.css"
 import ContentCard from '../atomic/homePoster/ContentCard'
 import PosterImage from '../atomic/homePoster/PosterImage'
 import { useSelector } from "react-redux"
@@ -8,6 +8,7 @@ import { getOffers } from '../../redux/slice/OfferSlice'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import CarouselItem from '../atomic/homePoster/CarouselItem'
+import "../../css/home/HomePoster.css"
 
 const HomePoster = () => {
   const categoriesData = useSelector(getCategories);
@@ -26,7 +27,7 @@ const HomePoster = () => {
     <div className='HomePoster-container'>
       
       {offerData && 
-        <Carousel autoPlay showThumbs={false} className='carousel'>
+        <Carousel autoPlay showThumbs={false} className='HomePoster-carousel'>
           {sortedOffers && sortedOffers.map((offer) => {
             if(offer.isActive) {
               return (
@@ -46,14 +47,14 @@ const HomePoster = () => {
 
         if (category.order % 2 === 0) {
           return (
-            <div className='poster'>
+            <div className='HomePoster-poster'>
               <ContentCard heading={category.name} description={category.description} buttonText={`Explore ${category.key}`} buttonLink={category.key} />
               <PosterImage imageUrl={category.imageUrl} />
             </div>
           )
         } else {
           return (
-            <div className='poster'>
+            <div className='HomePoster-poster'>
               <PosterImage imageUrl={category.imageUrl}/>
               <ContentCard heading={category.name} description={category.description} buttonText={`Explore ${category.key}`} buttonLink={category.key} />
             </div>

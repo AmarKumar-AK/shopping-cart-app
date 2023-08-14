@@ -1,7 +1,8 @@
 import React from 'react'
-import "../../../css/Signin.css"
+// import "../../../css/Signin.css"
 import AuthItem from '../../atomic/auth/AuthItem'
 import SigninForm from '../../atomic/auth/SigninForm'
+import "../../../css/auth/SigninContainer.css"
 
 const SigninContainer = () => {
   const signinHeading = "Login";

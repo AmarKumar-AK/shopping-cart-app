@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.Product-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 10%;
+    width: 80%;
+}
+
+.Product-panel {
+    width: 80%;
+}
+
+
+

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 
-import "../../css/ProductCard.css";
 
 import ProductItem from '../atomic/product/ProductItem';
 import { getProducts, requestProducts } from '../../redux/slice/ProductSlice';

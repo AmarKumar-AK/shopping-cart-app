@@ -1,0 +1,7 @@
+.AuthItem-container {
+    margin: 2rem;
+}
+
+.AuthItem-container p,h1 {
+    font-family: 'Oswald', sans-serif;
+}

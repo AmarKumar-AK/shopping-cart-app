@@ -1,6 +1,7 @@
 import React from 'react'
 import router from '../../../config/route'
-import "../../../css/Navbar.css"
+// import "../../../css/Navbar.css"
+import "../../../css/navbar/NavbarMenu.css"
 
 const NavbarMenu = () => {
   const navigateToHome = () => {
@@ -12,8 +13,8 @@ const NavbarMenu = () => {
   }
   
   return (
-    <div className='menu'>
-        <ul className='menu-items'>
+    <div className='NavbarMenu-container'>
+        <ul className='NavbarMenu-items'>
             <li onClick={() => navigateToHome()}>Home</li>
             <li onClick={() => navigateToProducts()}>Products</li>
         </ul>

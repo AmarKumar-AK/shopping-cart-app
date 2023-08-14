@@ -1,6 +1,7 @@
 import React from 'react'
-import "../../../css/Navbar.css"
+// import "../../../css/Navbar.css"
 import router from "../../../config/route"
+import "../../../css/navbar/NavbarAuth.css"
 
 const NavbarAuth = () => {
 
@@ -13,7 +14,7 @@ const NavbarAuth = () => {
   }
 
   return (
-    <div className='auth'>
+    <div className='NavbarAuth-container'>
         <div onClick={() => navigateToSignin()}>SignIn</div>
         <div onClick={() => navigateToRegister()}>Register</div>
     </div>

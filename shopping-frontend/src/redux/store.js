@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import categoriesReducer from "./slice/CategoriesSlice"
 import productReducer from "./slice/ProductSlice"
 import offerReducer from "./slice/OfferSlice"
+import cartReducer from "./slice/CartSlice"
 import createSagaMiddleware from 'redux-saga';
 import saga from "./saga";
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     categories: categoriesReducer,
     products: productReducer,
     offer: offerReducer,
+    cart: cartReducer,
 });
 
 const persistConfig = {

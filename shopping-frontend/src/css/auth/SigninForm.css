@@ -1,16 +1,14 @@
-.Register-container {
-    display: flex;
-    justify-content: center;
-}
-
-.register-form {
+.SigninForm-container {
     display: flex;
     flex-direction: column;
     margin: 2rem;
     width: 25%;
 }
 
-.button {
+.SigninForm-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
     background-color: #bf2957;
     color: white;
     border: none;

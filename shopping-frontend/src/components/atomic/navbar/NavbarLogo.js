@@ -1,6 +1,7 @@
 import React from 'react'
-import "../../../css/Navbar.css"
+// import "../../../css/Navbar.css"
 import router from '../../../config/route';
+import "../../../css/navbar/NavbarLogo.css"
 
 const NavbarLogo = () => {
   const imagePath = `${process.env.PUBLIC_URL}/static/images/logo.png`;
@@ -10,7 +11,7 @@ const NavbarLogo = () => {
   }
   
   return (
-    <div className='logo'>
+    <div className='NavbarLogo-container'>
       <img src={imagePath} alt="logo" onClick={() => navigateToHome()}/>
     </div>
   )
