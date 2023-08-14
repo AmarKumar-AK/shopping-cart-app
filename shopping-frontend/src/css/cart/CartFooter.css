@@ -1,0 +1,23 @@
+.CartFooter-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.CartFooter-checkout-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #bf2957;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    margin-top: 2%;
+}
+
+.CartFooter-checkout-text {
+    font-family: 'Oswald', sans-serif;
+}
+
+.CartFooter-checkout-icon {
+    font-size: 1rem;
+}

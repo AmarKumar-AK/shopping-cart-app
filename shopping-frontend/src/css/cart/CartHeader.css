@@ -1,0 +1,7 @@
+.CartHeader-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1d2124;
+    color: white;
+    padding: 1rem;
+}

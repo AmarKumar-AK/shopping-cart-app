@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "../../../css/cart/CartItem.css"
 
 const CartItem = () => {
     const imagePath = `${process.env.PUBLIC_URL}/static/images/products/fruit-n-veg/apple.jpg`;
@@ -17,21 +18,21 @@ const CartItem = () => {
     }, [itemQuantity])
 
   return (
-    <div className='cart-item'>
-        <div className='cart-item-image'>
+    <div className='CartItem-container'>
+        <div className='CartItem-image'>
             <img src={imagePath} alt="item" />
         </div>
-        <div className='cart-item-details'>
-            <div className='cart-item-name'>
+        <div className='CartItem-details'>
+            <span>
                 Apple asfha adfalga dgljdfg gjdfg d gdfhk fgdkgh dgdkhgfd kdhkghkhd dkhgkhfd
-            </div>
-            <div className='cart-item-quantity'>
+            </span>
+            <div className='CartItem-quantity'>
                 <div>
-                    <button className='quantity-button' onClick={() => changeItemQuantity(-1)}>-</button>
-                    <span className='quantity-value'>{itemQuantity}</span>
-                    <button className='quantity-button' onClick={() => changeItemQuantity(1)}>+</button>
-                    <span className='quantity-value'>x</span>
-                    <span className='item-price'>Rs.{itemPrice}</span>
+                    <button className='CartItem-quantity-button' onClick={() => changeItemQuantity(-1)}>-</button>
+                    <span className='CartItem-quantity-value'>{itemQuantity}</span>
+                    <button className='CartItem-quantity-button' onClick={() => changeItemQuantity(1)}>+</button>
+                    <span className='CartItem-quantity-multiply-sign'>x</span>
+                    <span>Rs.{itemPrice}</span>
                 </div>
                 <div>Rs.{totalQuantityPrice}</div>
             </div>

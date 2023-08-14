@@ -5,8 +5,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 // import Cart from '../../../pages/Cart';
 import Cart from '../../molecule/Cart';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsCartOpen, setIsCartOpen } from '../../../redux/slice/CartSlice';
+import { useDispatch } from 'react-redux';
+import { setIsCartOpen } from '../../../redux/slice/CartSlice';
 // import router from '../../../config/route';
 import "../../../css/navbar/NavbarCart.css"
 

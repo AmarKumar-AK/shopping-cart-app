@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-img {
+.ProductItem-image img {
     width: 9rem;
     height: auto;
 }
