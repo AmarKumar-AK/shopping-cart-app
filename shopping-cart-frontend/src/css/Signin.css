@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.Signin-container {
+    display: flex;
+    justify-content: center;
+}
+
+.auth-item {
+    margin: 2rem;
+}
+
+.auth-item p,h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    width: 25%;
+}
+
+.button {
+    background-color: #bf2957;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+}
+
+.form-content {
+    margin: 2rem 0;
+}
+
+.footer {
+    font-family: 'Oswald', sans-serif;
+    background-color: #eaeaea;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
