@@ -5,6 +5,7 @@ import categoriesReducer from "./slice/CategoriesSlice"
 import productReducer from "./slice/ProductSlice"
 import offerReducer from "./slice/OfferSlice"
 import cartReducer from "./slice/CartSlice"
+import userReducer from "./slice/UserSlice"
 import createSagaMiddleware from 'redux-saga';
 import saga from "./saga";
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     products: productReducer,
     offer: offerReducer,
     cart: cartReducer,
+    user: userReducer,
 });
 
 const persistConfig = {

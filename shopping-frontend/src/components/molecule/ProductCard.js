@@ -42,6 +42,7 @@ const ProductCard = ({category}) => {
               imageUrl={product.imageURL} 
               description={product.description} 
               price={product.price} 
+              key={product.sku}
             />
           )
         })}

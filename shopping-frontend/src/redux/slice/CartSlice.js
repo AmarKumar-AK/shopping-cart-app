@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isCartOpen: false,
+    carts: [
+
+    ]
 }
 
 const cartSlice = createSlice({

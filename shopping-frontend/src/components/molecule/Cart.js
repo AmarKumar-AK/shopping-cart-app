@@ -10,27 +10,10 @@ import CartContent from '../atomic/cart/CartContent';
 const Cart = () => {
   const isCartOpen = useSelector(selectIsCartOpen)
   const dispatch = useDispatch()
-    // const [open, setOpen] = React.useState(false);
-    // const [scroll, setScroll] = React.useState('paper');
-  
-    // const handleClickOpen = (scrollType) => () => {
-    //   setOpen(true);
-    //   setScroll(scrollType);
-    // };
   
     const handleClose = () => {
       dispatch(setIsCartOpen(false));
     };
-  
-    // const descriptionElementRef = React.useRef(null);
-    // React.useEffect(() => {
-    //   if (isCartOpen) {
-    //     const { current: descriptionElement } = descriptionElementRef;
-    //     if (descriptionElement !== null) {
-    //       descriptionElement.focus();
-    //     }
-    //   }
-    // }, [isCartOpen]);
   
     return (
       <Dialog
