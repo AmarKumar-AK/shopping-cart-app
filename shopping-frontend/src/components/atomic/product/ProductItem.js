@@ -3,18 +3,50 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import "../../../css/product/ProductItem.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { addCartItemToCart, getCartItems } from '../../../redux/slice/CartSlice';
+import { getProducts } from '../../../redux/slice/ProductSlice';
 
-const ProductItem = ({heading, imageUrl, description, price, key}) => {
+const ProductItem = ({heading, imageUrl, description, price, itemKey}) => {
+    const cartItemsData = useSelector(getCartItems);
+    const productsData = useSelector(getProducts);
+    const dispatch = useDispatch();
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
         padding: theme.spacing(1),
     }));
 
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
+    let cartItemAlreadyAdded = false;
+
+    if(cartItemsData) {
+      cartItemAlreadyAdded = cartItemsData.find(item => item.sku === itemKey) ? true : false;
+    }
+
+    
+
+    // const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     const addProductToCart = () => {
-      setIsButtonClicked(true)
+      const itemToAdd = productsData.find(item => item.sku === itemKey)
+      if(itemToAdd) {
+        dispatch(addCartItemToCart({
+          "name": itemToAdd.name,
+          "imageURL":itemToAdd.imageURL,  
+          "description": itemToAdd.description,
+          "price": itemToAdd.price,
+          "quantity": 1,
+          "totalItemPrice": itemToAdd.price,
+          "category": itemToAdd.category,
+          "sku": itemToAdd.sku, 
+          "id": itemToAdd.id
+        }))
+      }
+      // console.log("item to add : ", itemToAdd)
+      
+      // setIsButtonClicked(true)
+      // console.log("add product to cart")
     }
 
     const imagePath = `${process.env.PUBLIC_URL}${imageUrl}`;
@@ -28,10 +60,10 @@ const ProductItem = ({heading, imageUrl, description, price, key}) => {
         </div>
         
         <p className='ProductItem-description'>{description}</p>
-        {isButtonClicked ? (
+        {cartItemAlreadyAdded ? (
           <button className='ProductItem-buy-button'>Added</button>
         ) : (
-          <button key={key} className='ProductItem-buy-button' onClick={() => addProductToCart()}>Buy Now @ {price}</button>
+          <button key={itemKey} className='ProductItem-buy-button' onClick={() => addProductToCart()}>Buy Now @ {price}</button>
         )}
         {/* <button key={key} className='ProductItem-buy-button' onClick={() => addProductToCart()}>Buy Now @ {price}</button> */}
       </Item> 

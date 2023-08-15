@@ -11,6 +11,7 @@ import { getCategories, requestCategories  } from '../../redux/slice/CategoriesS
 const ProductCard = ({category}) => {
     const productsData = useSelector(getProducts);
     const categoryData = useSelector(getCategories);
+    // const cartItemsData = useSelector();
 
     let dataToRender = productsData;
 
@@ -26,6 +27,13 @@ const ProductCard = ({category}) => {
       dataToRender = productDataByCategory;
     }
 
+    // for(let i = 0; i < cartItemsData.length; i++) {
+    //   const index = dataToRender.findIndex(item => item.sku === cartItemsData[i].sku);
+    //   if(index !== -1) {
+    //     dataToRender[index].isAdded = true
+    //   }
+    // }
+
   return (
     <Box sx={{ flexGrow: 1, margin:2}}>
       <Grid container rowSpacing={{ sm: 1, md: 1 }} columnSpacing={{ sm: 1, md: 1 }}>
@@ -36,7 +44,7 @@ const ProductCard = ({category}) => {
               imageUrl={product.imageURL} 
               description={product.description} 
               price={product.price} 
-              key={product.sku}
+              itemKey={product.sku}
             />
           )
         })}

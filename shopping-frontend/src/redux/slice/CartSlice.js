@@ -16,7 +16,19 @@ const cartSlice = createSlice({
             state.userCart = {}
         },
         addCartItemToCart : (state, action) => {
-            state.userCart.cartItems = action.payload
+             
+            state.userCart.cartItems.push({
+                "name": action.payload.name,
+                "imageURL": action.payload.imageURL,  
+                "description": action.payload.description,
+                "price": action.payload.price,
+                "quantity": action.payload.quantity,
+                "totalItemPrice": action.payload.totalItemPrice,
+                "category": action.payload.category,
+                "sku": action.payload.sku, 
+                "id": action.payload.id
+            })
+            // state.userCart.cartItems = action.payload
         },
         changeCartItemQuantity : (state, action) => {
             const index = state.userCart.cartItems.findIndex(item => item.sku === action.payload.sku);
