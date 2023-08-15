@@ -6,7 +6,7 @@ import { IconContext } from "react-icons";
 // import Cart from '../../../pages/Cart';
 import Cart from '../../molecule/Cart';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsCartOpen } from '../../../redux/slice/CartSlice';
+import { getCartItems, setIsCartOpen } from '../../../redux/slice/CartSlice';
 import router from '../../../config/route';
 import "../../../css/navbar/NavbarCart.css"
 import { getIsLoggedIn } from '../../../redux/slice/AuthSlice';
@@ -17,7 +17,13 @@ const NavbarCart = () => {
     className: "icon-context" 
   };
 
+  let cartItemsDataLength = 0;
+
   const isLoggedIn = useSelector(getIsLoggedIn)
+  const cartItemsData = useSelector(getCartItems)
+  if(cartItemsData) {
+    cartItemsDataLength = cartItemsData.length
+  }
 
   // const isCartOpen = useSelector(selectIsCartOpen)
 
@@ -29,7 +35,7 @@ const NavbarCart = () => {
   // const [scroll, setScroll] = useState('paper');
   const dispatch = useDispatch();
   
-    const handleClickOpen = (scrollType) => {
+    const handleClickOpen = () => {
       if(isLoggedIn) {
         dispatch(setIsCartOpen(true));
       } else {
@@ -59,7 +65,7 @@ const NavbarCart = () => {
           <FaShoppingCart />
       </IconContext.Provider>
       &nbsp;&nbsp;&nbsp;
-      <span onClick={() => handleClickOpen('paper')}>0 items</span>
+      <span onClick={() => handleClickOpen()}>{cartItemsDataLength} items</span>
       <Cart />
     </div>
   )

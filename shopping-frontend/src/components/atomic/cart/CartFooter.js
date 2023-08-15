@@ -16,7 +16,10 @@ const CartFooter = () => {
 
   return (
     <DialogActions className='CartFooter-container'>
-        <span className='CartFooter-checkout-text'>Promo code can be applied on payment page</span>
+        {totalPrice > 0 &&
+          <span className='CartFooter-checkout-text'>Promo code can be applied on payment page</span>
+        }
+        {/* <span className='CartFooter-checkout-text'>Promo code can be applied on payment page</span> */}
         {totalPrice > 0 ? (
             <button className='CartFooter-checkout-button'>
               <span>Proceed to Checkout</span>
