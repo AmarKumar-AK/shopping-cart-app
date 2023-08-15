@@ -1,30 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import "../../../css/cart/CartItem.css"
+import { useDispatch } from 'react-redux'
+import { changeCartItemQuantity } from '../../../redux/slice/CartSlice';
 
-const CartItem = () => {
-    const imagePath = `${process.env.PUBLIC_URL}/static/images/products/fruit-n-veg/apple.jpg`;
-    const [itemQuantity, setItemQuantity] = useState(1);
-    const [totalQuantityPrice, setTotalQuantityPrice] = useState(0);
-    const itemPrice = 100
+const CartItem = ({itemKey, itemImageUrl, itemName, itemQuantity, itemPrice, totalItemPrice}) => {
+    const imagePath = `${process.env.PUBLIC_URL}${itemImageUrl}`;
+    // console.log("item key : ", itemKey)
+    // const [itemQuantity, setItemQuantity] = useState(1);
+    // const [totalQuantityPrice, setTotalQuantityPrice] = useState(0);
+    // const itemPrice = 100
+    const dispatch = useDispatch()
 
     const changeItemQuantity = (value) => {
+        // const index = getItemIndexUsingKey(key)
+        // const index = 1
         if (itemQuantity + value >= 1) {
-            setItemQuantity(itemQuantity + value)
+            console.log("key to change : ", itemKey)
+            dispatch(changeCartItemQuantity({
+                "sku": itemKey,
+                "newQuantity": itemQuantity + value,
+            }))
+            // dispatch({"key": index, "quantity": itemQuantity + value, "totalItemPrice": (itemQuantity + value) * itemPrice })
+            // setItemQuantity(itemQuantity + value)
         }
     }
 
-    useEffect(() => {
-        setTotalQuantityPrice(itemQuantity * 100)
-    }, [itemQuantity])
-
   return (
-    <div className='CartItem-container'>
+    <div key={itemKey} className='CartItem-container'>
         <div className='CartItem-image'>
             <img src={imagePath} alt="item" />
         </div>
         <div className='CartItem-details'>
             <span>
-                Apple asfha adfalga dgljdfg gjdfg d gdfhk fgdkgh dgdkhgfd kdhkghkhd dkhgkhfd
+                {itemName}
             </span>
             <div className='CartItem-quantity'>
                 <div>
@@ -34,7 +42,7 @@ const CartItem = () => {
                     <span className='CartItem-quantity-multiply-sign'>x</span>
                     <span>Rs.{itemPrice}</span>
                 </div>
-                <div>Rs.{totalQuantityPrice}</div>
+                <div>Rs.{totalItemPrice}</div>
             </div>
         </div>
 

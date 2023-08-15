@@ -14,6 +14,17 @@
     margin-top: 2%;
 }
 
+.CartFooter-start-shopping-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #bf2957;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    margin-top: 2%;
+}
+
 .CartFooter-checkout-text {
     font-family: 'Oswald', sans-serif;
 }

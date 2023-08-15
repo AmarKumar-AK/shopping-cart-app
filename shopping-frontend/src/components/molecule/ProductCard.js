@@ -11,7 +11,6 @@ import { getCategories, requestCategories  } from '../../redux/slice/CategoriesS
 const ProductCard = ({category}) => {
     const productsData = useSelector(getProducts);
     const categoryData = useSelector(getCategories);
-    const dispatch = useDispatch();
 
     let dataToRender = productsData;
 
@@ -26,11 +25,6 @@ const ProductCard = ({category}) => {
 
       dataToRender = productDataByCategory;
     }
-    
-    useEffect(() => {
-        dispatch(requestProducts());
-        dispatch(requestCategories());
-    }, [dispatch]);
 
   return (
     <Box sx={{ flexGrow: 1, margin:2}}>

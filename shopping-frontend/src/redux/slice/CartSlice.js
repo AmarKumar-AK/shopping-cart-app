@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isCartOpen: false,
-    cart: {}
+    userCart: {}
 }
 
 const cartSlice = createSlice({
@@ -10,13 +10,18 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         initializeCartOnLogin : (state, action) => {
-            state.cart = action.payload
+            state.userCart = action.payload
         },
         removeCartOnLogout : (state, action) => {
-            state.cart = {}
+            state.userCart = {}
         },
         addCartItemToCart : (state, action) => {
-            state.cart.cartItems = action.payload
+            state.userCart.cartItems = action.payload
+        },
+        changeCartItemQuantity : (state, action) => {
+            const index = state.userCart.cartItems.findIndex(item => item.sku === action.payload.sku);
+            state.userCart.cartItems[index].quantity = action.payload.newQuantity
+            state.userCart.cartItems[index].totalItemPrice = action.payload.newQuantity * state.userCart.cartItems[index].price
         },
         setIsCartOpen(state, action) {
             state.isCartOpen = action.payload
@@ -25,5 +30,6 @@ const cartSlice = createSlice({
 })
 
 export const selectIsCartOpen = (state) => state.cart.isCartOpen
-export const { initializeCartOnLogin, removeCartOnLogout, addCartItemToCart, setIsCartOpen } = cartSlice.actions;
+export const getCartItems = (state) => state.cart.userCart.cartItems
+export const { initializeCartOnLogin, removeCartOnLogout, addCartItemToCart, changeCartItemQuantity, setIsCartOpen } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,11 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaTimes } from 'react-icons/fa';
-import { setIsCartOpen } from '../../../redux/slice/CartSlice';
+import { getCartItems, setIsCartOpen } from '../../../redux/slice/CartSlice';
 import "../../../css/cart/CartHeader.css"
 
 const CartHeader = () => {
     const dispatch = useDispatch();
+    const cartItemsData = useSelector(getCartItems)
   
     const handleClose = () => {
       dispatch(setIsCartOpen(false));
@@ -14,7 +15,11 @@ const CartHeader = () => {
   return (
     <div className='CartHeader-container'>
         <div>
-            My cart <span>(0 item)</span>
+            My cart &nbsp;
+            {cartItemsData &&
+              <span>({cartItemsData.length} item)</span>
+            }
+            
         </div>
         <div onClick={handleClose}>
             <FaTimes />
