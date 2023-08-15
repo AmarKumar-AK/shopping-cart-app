@@ -6,12 +6,14 @@ import productReducer from "./slice/ProductSlice"
 import offerReducer from "./slice/OfferSlice"
 import cartReducer from "./slice/CartSlice"
 import userReducer from "./slice/UserSlice"
+import authReducer from "./slice/AuthSlice"
 import createSagaMiddleware from 'redux-saga';
 import saga from "./saga";
 
 const sagaMiddleware = createSagaMiddleware(); 
 
 const rootReducer = combineReducers({
+    auth: authReducer,
     categories: categoriesReducer,
     products: productReducer,
     offer: offerReducer,

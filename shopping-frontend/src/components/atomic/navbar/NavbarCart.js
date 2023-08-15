@@ -5,16 +5,19 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 // import Cart from '../../../pages/Cart';
 import Cart from '../../molecule/Cart';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setIsCartOpen } from '../../../redux/slice/CartSlice';
-// import router from '../../../config/route';
+import router from '../../../config/route';
 import "../../../css/navbar/NavbarCart.css"
+import { getIsLoggedIn } from '../../../redux/slice/AuthSlice';
 
 const NavbarCart = () => {
   const iconContextProviderValue = { 
     color: "#bf2957", 
     className: "icon-context" 
   };
+
+  const isLoggedIn = useSelector(getIsLoggedIn)
 
   // const isCartOpen = useSelector(selectIsCartOpen)
 
@@ -27,8 +30,12 @@ const NavbarCart = () => {
   const dispatch = useDispatch();
   
     const handleClickOpen = (scrollType) => {
-      console.log("inside handle open")
-      dispatch(setIsCartOpen(true));
+      if(isLoggedIn) {
+        dispatch(setIsCartOpen(true));
+      } else {
+        router.navigate("/signin");
+        alert("Please login to view cart");
+      }
       // setScroll(scrollType);
     };
   
