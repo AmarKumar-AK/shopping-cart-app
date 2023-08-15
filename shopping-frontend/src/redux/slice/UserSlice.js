@@ -26,11 +26,20 @@ const userSlice = createSlice({
 
             state.error = true;
             state.loading = false;
+        },
+        addUser(state, action) {
+            state.data.push({
+                "firstName": action.payload.firstName,
+                "lastName": action.payload.lastName,
+                "email": action.payload.email,
+                "password": action.payload.password,
+                "cart": action.payload.cart
+            });
         }
     }
 });
 
 export const getUsers = (state) => state.user.data;
 
-export const { requestUsers, userSuccessResponse, userFailureResponse } = userSlice.actions;
+export const { requestUsers, userSuccessResponse, userFailureResponse, addUser } = userSlice.actions;
 export default userSlice.reducer;
