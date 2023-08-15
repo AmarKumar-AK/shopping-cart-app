@@ -1,0 +1,8 @@
+.NavbarMenu-container ul {
+    padding-top: 1.5rem;
+}
+
+.NavbarMenu-items li{
+    display: inline;
+    margin-right: 10px;
+}

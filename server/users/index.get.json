@@ -1,0 +1,66 @@
+[
+    {
+        "firstName": "Amar",
+        "lastName": "Kumar",
+        "email": "amar@gmail.com",
+        "password": "amar",
+        "cart": {
+            "cartId": 1,
+            "cartItems": [
+                {
+                    "name": "Fresho Kiwi - Green, 3 pcs",
+                    "imageURL": "/static/images/products/fruit-n-veg/kiwi-green.jpg",
+                    "description": "Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.",
+                    "price": 87,
+                    "quantity": 45,
+                    "totalItemPrice": 3915,
+                    "category": "5b6899953d1a866534f516e2",
+                    "sku": "fnw-kiwi-3",
+                    "id": "5b6c6a7f01a7c38429530883"
+                },
+                {
+                    "name": "Bournvita Pro-Health Drink - Chocolate, 2x750 gm",
+                    "imageURL": "/static/images/products/beverages/bournvita.jpg",
+                    "description": "Cadbury Bournvita is a delicious chocolate health drink which is enriched with Vitamin (D,B2,B9,B12). It combines the great taste of chocolate, and goodness of essential nutrients that aid growth and development.",
+                    "price": 572,
+                    "quantity": 1,
+                    "totalItemPrice": 572,
+                    "category": "5b675e5e5936635728f9fc30",
+                    "sku": "bev-bournvita-750",
+                    "id": "5b6c6fbf01a7c3842953088e"
+                },
+                {
+                    "name": "Close Up Ever Fresh Red Hot Gel Toothpaste, 150 gm",
+                    "imageURL": "/static/images/products/beauty-hygiene/closeup.jpg",
+                    "description": " Closeup's unique Active Zinc Mouthwash not only cleans deep corners of your mouth of residual germs it also gives you upto 12 Hours Fresh Breath.",
+                    "price": 82,
+                    "quantity": 3,
+                    "totalItemPrice": 246,
+                    "category": "5b68994e3d1a866534f516df",
+                    "sku": "bh-closeup-150",
+                    "id": "5b6c727801a7c38429530894"
+                }
+            ]
+        } 
+    },
+    {
+        "firstName": "Piyush",
+        "lastName": "Bhardwaj",
+        "email": "piyush@gmail.com",
+        "password": "piyush",
+        "cart": {
+            "cartId": 2,
+            "cartItems": []
+        }
+    },
+    {
+        "firstName": "Sanskriti",
+        "lastName": "Agrawal",
+        "email": "sanskriti@gmail.com",
+        "password": "sanskriti",
+        "cart": {
+            "cartId": 3,
+            "cartItems": []
+        }
+      }
+]

@@ -1,0 +1,16 @@
+.RegisterForm-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    width: 25%;
+}
+
+.RegisterForm-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: #bf2957;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+}

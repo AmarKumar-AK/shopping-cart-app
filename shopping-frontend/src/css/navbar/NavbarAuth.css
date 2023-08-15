@@ -1,0 +1,10 @@
+.NavbarAuth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%
+}
+
+.NavbarAuth-container div {
+    margin-right: 1rem;
+}

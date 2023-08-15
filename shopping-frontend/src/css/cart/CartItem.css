@@ -1,0 +1,56 @@
+.CartItem-container {
+    display: flex;
+    background-color: white;
+    height: 6rem;
+    margin-top: 0.5rem;
+}
+
+.CartItem-image {
+    display: flex;
+    align-items: center;
+    width:18%;
+    margin: 2%;
+    /* background-color: red; */
+}
+
+.CartItem-image img{
+    width:100%;
+    /* background-color: red; */
+}
+
+.CartItem-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:75%;
+    height:6rem;
+}
+.CartItem-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: smaller;
+    font-weight: 400;
+}
+
+.CartItem-quantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.CartItem-quantity-button {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #bf2957;
+    color: white;
+    border: none;
+    margin: 0.5rem;
+    border-radius: 50%;
+}
+
+.CartItem-quantity-value, .CartItem-quantity-multiply-sign {
+    padding: 0 0.5rem;
+}
+
+div.MuiDialogContent-root {
+    padding: 0;
+}

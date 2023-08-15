@@ -9,6 +9,7 @@ const port = 5000;
 const productsFilePath = path.join(__dirname, 'products', 'index.get.json');
 const categoriesFilePath = path.join(__dirname,  'categories', 'index.get.json');
 const bannersFilePath = path.join(__dirname, 'banners', 'index.get.json');
+const usersFilePath = path.join(__dirname, 'users', 'index.get.json');
 const addToCartFilePath = path.join(__dirname, 'addToCart', 'index.post.json');
 
 app.use(cors())
@@ -58,48 +59,60 @@ app.get('/products', async (req, res) => {
     }
 });
 
-// get product by category id
-app.get('/products/categoryId/:categoryId', async (req, res) => {
-  const categoryId = req.params.categoryId;
-
-  if (!categoryId) {
-    return res.status(400).json({ error: 'Invalid product category' });
-  }
-
+// get all users
+app.get('/users', async (req, res) => {
   try {
-    const data = await fs.readFile(productsFilePath, 'utf8');
-    const products = JSON.parse(data);
-
-    const filteredProducts = products.filter(product => product.category == categoryId);
-    res.json(filteredProducts);
-
+    const data = await fs.readFile(usersFilePath, 'utf8');
+    const users = JSON.parse(data);
+    res.json(users);
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// get product by category id
+// app.get('/products/categoryId/:categoryId', async (req, res) => {
+//   const categoryId = req.params.categoryId;
+
+//   if (!categoryId) {
+//     return res.status(400).json({ error: 'Invalid product category' });
+//   }
+
+//   try {
+//     const data = await fs.readFile(productsFilePath, 'utf8');
+//     const products = JSON.parse(data);
+
+//     const filteredProducts = products.filter(product => product.category == categoryId);
+//     res.json(filteredProducts);
+
+//   } catch (error) {
+//     console.error('Error:', error);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// });
 
 // get product by category name
-app.get('/products/category/:categoryName', async (req, res) => {
-  const categoryKey = req.params.categoryName;
+// app.get('/products/category/:categoryName', async (req, res) => {
+//   const categoryKey = req.params.categoryName;
 
-  try {
-    const data1 = await fs.readFile(categoriesFilePath, 'utf8');
-    const categories = JSON.parse(data1);
+//   try {
+//     const data1 = await fs.readFile(categoriesFilePath, 'utf8');
+//     const categories = JSON.parse(data1);
 
-    const filteredCategory = categories.filter(category => category.key == categoryKey);
+//     const filteredCategory = categories.filter(category => category.key == categoryKey);
 
-    const data2 = await fs.readFile(productsFilePath, 'utf8');
-    const products = JSON.parse(data2);
+//     const data2 = await fs.readFile(productsFilePath, 'utf8');
+//     const products = JSON.parse(data2);
 
-    const filteredProducts = products.filter(product => product.category == filteredCategory[0].id);
-    res.json(filteredProducts);
+//     const filteredProducts = products.filter(product => product.category == filteredCategory[0].id);
+//     res.json(filteredProducts);
     
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+//   } catch (error) {
+//     console.error('Error:', error);
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

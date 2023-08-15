@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 
-import "../../css/ProductCard.css";
 
 import ProductItem from '../atomic/product/ProductItem';
 import { getProducts, requestProducts } from '../../redux/slice/ProductSlice';
@@ -12,7 +11,7 @@ import { getCategories, requestCategories  } from '../../redux/slice/CategoriesS
 const ProductCard = ({category}) => {
     const productsData = useSelector(getProducts);
     const categoryData = useSelector(getCategories);
-    const dispatch = useDispatch();
+    // const cartItemsData = useSelector();
 
     let dataToRender = productsData;
 
@@ -27,11 +26,13 @@ const ProductCard = ({category}) => {
 
       dataToRender = productDataByCategory;
     }
-    
-    useEffect(() => {
-        dispatch(requestProducts());
-        dispatch(requestCategories());
-    }, [dispatch]);
+
+    // for(let i = 0; i < cartItemsData.length; i++) {
+    //   const index = dataToRender.findIndex(item => item.sku === cartItemsData[i].sku);
+    //   if(index !== -1) {
+    //     dataToRender[index].isAdded = true
+    //   }
+    // }
 
   return (
     <Box sx={{ flexGrow: 1, margin:2}}>
@@ -43,6 +44,7 @@ const ProductCard = ({category}) => {
               imageUrl={product.imageURL} 
               description={product.description} 
               price={product.price} 
+              itemKey={product.sku}
             />
           )
         })}

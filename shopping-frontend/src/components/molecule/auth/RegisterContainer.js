@@ -1,7 +1,8 @@
 import React from 'react'
 import AuthItem from '../../atomic/auth/AuthItem'
-import "../../../css/Register.css"
+// import "../../../css/Register.css"
 import RegisterForm from '../../atomic/auth/RegisterForm'
+import "../../../css/auth/RegisterContainer.css"
 
 const RegisterContainer = () => {
   const signupHeading = "Signup";
