@@ -1,3 +1,22 @@
 .cart-content {
     background-color: #eeeeee;
 }
+
+.CartContent-no-items {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    /* font-family: 'Oswald', sans-serif; */
+}
+.CartContent-no-items-heading {
+    font-weight: 700;
+    font-size: larger;
+}
+
+.CartContent-no-items-description {
+    font-weight: 400;
+    font-size: smaller;
+}

@@ -31,6 +31,13 @@ const CartContent = () => {
 
       )
     })}
+    {cartItemsData && cartItemsData.length === 0 &&
+      <div className='CartContent-no-items'>
+        <span className='CartContent-no-items-heading'>No items in your cart</span>
+        <span className='CartContent-no-items-description'>Your favourite items are just a click away</span>
+      </div>
+    
+    }
         
     {/* </DialogContentText> */}
     </DialogContent>

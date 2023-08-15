@@ -35,6 +35,10 @@ const cartSlice = createSlice({
             state.userCart.cartItems[index].quantity = action.payload.newQuantity
             state.userCart.cartItems[index].totalItemPrice = action.payload.newQuantity * state.userCart.cartItems[index].price
         },
+        removeItemFromCart : (state, action) => {
+            const index = state.userCart.cartItems.findIndex(item => item.sku === action.payload);
+            state.userCart.cartItems.splice(index, 1)
+        },
         setIsCartOpen(state, action) {
             state.isCartOpen = action.payload
         },
@@ -43,5 +47,5 @@ const cartSlice = createSlice({
 
 export const selectIsCartOpen = (state) => state.cart.isCartOpen
 export const getCartItems = (state) => state.cart.userCart.cartItems
-export const { initializeCartOnLogin, removeCartOnLogout, addCartItemToCart, changeCartItemQuantity, setIsCartOpen } = cartSlice.actions;
+export const { initializeCartOnLogin, removeCartOnLogout, addCartItemToCart, changeCartItemQuantity, removeItemFromCart, setIsCartOpen } = cartSlice.actions;
 export default cartSlice.reducer;

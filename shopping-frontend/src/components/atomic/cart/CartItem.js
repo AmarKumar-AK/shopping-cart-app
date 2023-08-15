@@ -1,7 +1,8 @@
 import React from 'react'
 import "../../../css/cart/CartItem.css"
-import { useDispatch } from 'react-redux'
-import { changeCartItemQuantity } from '../../../redux/slice/CartSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { changeCartItemQuantity, removeItemFromCart } from '../../../redux/slice/CartSlice';
+import { getProducts } from '../../../redux/slice/ProductSlice';
 
 const CartItem = ({itemKey, itemImageUrl, itemName, itemQuantity, itemPrice, totalItemPrice}) => {
     const imagePath = `${process.env.PUBLIC_URL}${itemImageUrl}`;
@@ -10,11 +11,18 @@ const CartItem = ({itemKey, itemImageUrl, itemName, itemQuantity, itemPrice, tot
     // const [totalQuantityPrice, setTotalQuantityPrice] = useState(0);
     // const itemPrice = 100
     const dispatch = useDispatch()
+    const productData = useSelector(getProducts)
+    const itemStock = productData.find(product => product.sku === itemKey).stock
+    
 
     const changeItemQuantity = (value) => {
-        // const index = getItemIndexUsingKey(key)
-        // const index = 1
-        if (itemQuantity + value >= 1) {
+        if(itemQuantity + value > itemStock) {
+            alert("No more stock available for this item")
+        } else if(itemQuantity + value <= 0) {
+            dispatch(removeItemFromCart(itemKey))
+        }
+
+        else if (itemQuantity + value >= 1) {
             console.log("key to change : ", itemKey)
             dispatch(changeCartItemQuantity({
                 "sku": itemKey,
@@ -31,7 +39,7 @@ const CartItem = ({itemKey, itemImageUrl, itemName, itemQuantity, itemPrice, tot
             <img src={imagePath} alt="item" />
         </div>
         <div className='CartItem-details'>
-            <span>
+            <span className='CartItem-name'>
                 {itemName}
             </span>
             <div className='CartItem-quantity'>

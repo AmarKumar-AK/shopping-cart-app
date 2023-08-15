@@ -25,6 +25,11 @@
     width:75%;
     height:6rem;
 }
+.CartItem-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: smaller;
+    font-weight: 400;
+}
 
 .CartItem-quantity{
     display: flex;
