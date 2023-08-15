@@ -7,6 +7,7 @@ import { getUsers } from '../../../redux/slice/UserSlice'
 import "../../../css/auth/SigninForm.css"
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../redux/slice/AuthSlice'
+import { initializeCartOnLogin } from '../../../redux/slice/CartSlice'
 
 const SigninForm = () => {
   const [email, setEmail] = useState('');
@@ -31,6 +32,7 @@ const SigninForm = () => {
           "cart": currentUser.cart
         })
       )
+      dispatch(initializeCartOnLogin(currentUser.cart))
       return true;
     } else {
       return false

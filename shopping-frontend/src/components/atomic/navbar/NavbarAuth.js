@@ -4,6 +4,7 @@ import router from "../../../config/route"
 import "../../../css/navbar/NavbarAuth.css"
 import { useSelector, useDispatch } from 'react-redux'
 import { getIsLoggedIn, logout } from '../../../redux/slice/AuthSlice'
+import { removeCartOnLogout } from '../../../redux/slice/CartSlice'
 
 const NavbarAuth = () => {
   const isLoggedIn = useSelector(getIsLoggedIn)
@@ -20,6 +21,7 @@ const NavbarAuth = () => {
 
   const loggingOut = () => {
     dispatch(logout())
+    dispatch(removeCartOnLogout())
     router.navigate("/")
     alert("Logged out successfully")
   }
