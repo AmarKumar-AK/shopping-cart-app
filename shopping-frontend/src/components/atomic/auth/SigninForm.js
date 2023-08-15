@@ -20,25 +20,32 @@ const SigninForm = () => {
     if (!email || !password) {
       return false;
     }
-    const currentUser = userData.find((user) => user.email === email && user.password === password);
-    console.log(currentUser);
-    dispatch(
-      login({
-        "firstName": currentUser.firstName, 
-        "lastName": currentUser.lastName, 
-        "email": currentUser.email, 
-        "cart": currentUser.cart
-      })
-      )
 
-    return true;
+    const currentUser = userData.find((user) => user.email === email && user.password === password);
+    if(currentUser) {
+      dispatch(
+        login({
+          "firstName": currentUser.firstName, 
+          "lastName": currentUser.lastName, 
+          "email": currentUser.email, 
+          "cart": currentUser.cart
+        })
+      )
+      return true;
+    } else {
+      return false
+    }
+    
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if(validateLogin()) {
       console.log('Login Successful');
       navigate("/products")
+    } else {
+      alert("Invalid Credentials")
     }
   };
 
