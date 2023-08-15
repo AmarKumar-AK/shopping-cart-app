@@ -20,7 +20,7 @@ const RequireAuth = ({children}) => {
 
   return (
     <div>
-        {isLoggedIn && {children}}  
+        {children}  
     </div>
   )
 }

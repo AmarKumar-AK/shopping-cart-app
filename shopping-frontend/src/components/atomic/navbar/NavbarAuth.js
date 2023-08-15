@@ -2,8 +2,13 @@ import React from 'react'
 // import "../../../css/Navbar.css"
 import router from "../../../config/route"
 import "../../../css/navbar/NavbarAuth.css"
+import { useSelector, useDispatch } from 'react-redux'
+import { getIsLoggedIn, logout } from '../../../redux/slice/AuthSlice'
 
 const NavbarAuth = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn)
+  const dispatch = useDispatch()
+  
 
   const navigateToSignin = () => {
     router.navigate("/signin")
@@ -13,10 +18,23 @@ const NavbarAuth = () => {
     router.navigate("/register")
   }
 
+  const loggingOut = () => {
+    dispatch(logout())
+    router.navigate("/")
+    alert("Logged out successfully")
+  }
+
   return (
     <div className='NavbarAuth-container'>
-        <div onClick={() => navigateToSignin()}>SignIn</div>
-        <div onClick={() => navigateToRegister()}>Register</div>
+        {isLoggedIn ? (
+          <div onClick={() => loggingOut()}>Logout</div>
+        ) : (
+          <>
+            <div onClick={() => navigateToSignin()}>SignIn</div>
+            <div onClick={() => navigateToRegister()}>Register</div>
+          </>
+        )}
+        
     </div>
   )
 }
