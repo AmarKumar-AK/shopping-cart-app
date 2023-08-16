@@ -36,8 +36,27 @@
 
 .ProductItem-buy-button {
     width: 100%;
+    display: flex;
+    justify-content: center;
     background-color: #bf2957;
     color: white;
     border: none;
     padding: 0.6rem;
+}
+
+.ProductItem-added-button {
+    background-color: #bf2957;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+}
+
+.ProductItem-buy-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProductItem-added-price {
+    display: flex;
+    align-items: center;
 }

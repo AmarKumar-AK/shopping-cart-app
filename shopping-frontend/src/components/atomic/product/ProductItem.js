@@ -61,7 +61,10 @@ const ProductItem = ({heading, imageUrl, description, price, itemKey}) => {
         
         <p className='ProductItem-description'>{description}</p>
         {cartItemAlreadyAdded ? (
-          <button className='ProductItem-buy-button'>Added</button>
+          <div className='ProductItem-buy-container'>
+            <span className='ProductItem-added-price'>Rs.{price}</span>
+            <button className='ProductItem-added-button'><span>Added</span></button>
+          </div>
         ) : (
           <button key={itemKey} className='ProductItem-buy-button' onClick={() => addProductToCart()}>Buy Now @ {price}</button>
         )}
